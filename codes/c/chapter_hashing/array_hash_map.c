@@ -29,6 +29,9 @@ typedef struct {
 /* 构造函数 */
 ArrayHashMap *newArrayHashMap() {
     ArrayHashMap *hmap = malloc(sizeof(ArrayHashMap));
+    /* 将 buckets 成员的所有键值对元素设置为 null */
+    for (int i = 0; i < HASHTABLE_CAPACITY; i++)
+        hmap->buckets[i] = NULL;
     return hmap;
 }
 
